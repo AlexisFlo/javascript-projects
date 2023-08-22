@@ -1,0 +1,55 @@
+/* GLOBAL STYLES */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  display: flex;
+  width: 90vh;
+  gap: 1rem;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  flex: 0.5;
+  position: relative;
+  transition: flex 0.5s ease-in;
+  cursor: pointer;
+}
+
+.active {
+  flex: 5;
+}
+
+.panel h3 {
+  font-size: 2rem;
+  color: white;
+  filter: drop-shadow(5px 5px 10px #000);
+  position: absolute;
+  left: 45px;
+  bottom: 0px;
+  opacity: 0;
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.5s ease-in 0.5s;
+}
+
+@media (max-width: 600px) {
+  .container{
+    flex-direction: column;
+    height: 90vh;
+  }
+}
