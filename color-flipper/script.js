@@ -153,7 +153,7 @@ const colorsName = Object.keys(colors);
 
 const btn = document.getElementById('btn-switcher');
 const main = document.querySelector("main");
-const colorTag = document.querySelector('color-tag');
+const colorTag = document.getElementById('color-tag');
 
 function changeColor(){
   const oldColor = main.style.backgroundColor.toLowerCase();
