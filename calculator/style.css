@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --color-blue: #00AAFF;
+    --color-green: #00FF6C;
+    --gradient-blue-green: linear-gradient(to right, #00AAFF, #00FF6C);
+    --color-display-bg: rgba(0, 0, 0, .75);
+    --color-display-1: rgba(255, 255, 255, 1);
+    --color-display-2: rgba(255, 255, 255, .75);
+    --transition: 0.2s linear;
+    --animation-keypress: translate(2px, 2px);
+}
+
+* {
+    box-sizing: border-box;
+    border: none;
+}
+html {
+    font-size: 62.5%;
+}
+
+body { 
+    padding: 0;
+    margin: 0;
+    background: var(--gradient-blue-green);
+    
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    grid-template-columns: repeat(4, 10rem);
+    grid-template-rows: minmax(12rem, auto) repeat(5, 10rem);
+    gap: 5px;
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 3rem;
+    outline: none;
+    background-color: var(--color-display-2);
+    transition: background-color var(--transition);
+}
+
+.calculator-grid > button:hover {
+    background-color: var(--color-display-1);
+}
+
+.calculator-grid > button:active, 
+.calculator-grid > button.key-pressed {
+    background-color: var(--color-display-1);
+    transform: var(--animation-keypress);
+}
+
+.display {
+    grid-column: 1 / -1;
+    background-color: var(--color-display-bg);
+    color: var(--color-display-1);
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.flash {
+    animation: bright-flash 0.3s linear;
+}
+
+@keyframes bright-flash {
+    0% {
+        background-color: var(--color-display-bg);
+    }
+    50% {
+        background-color: var(--color-display-2);
+    }
+    100% {
+        background-color: var(--color-display-bg);
+    }
+}
+
+.previous-operand {
+    color: var(--color-display-2);
+    font-size: 2.5rem;
+    text-align: right;
+}
+
+.current-operand {
+    color: var(--color-display-1);
+    font-size: 5rem;
+    text-align: right;
+}
+
+.span-two {
+    grid-column: span 2;
+}
